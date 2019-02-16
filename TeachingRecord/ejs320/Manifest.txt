@@ -1,0 +1,2 @@
+Main-class: TeachingRecord
+Class-Path: ejs320/ojdbc8.jar
