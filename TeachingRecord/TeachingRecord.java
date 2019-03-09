@@ -136,13 +136,13 @@ public class TeachingRecord {
         enteredId = readID(scan);
         String query;
         ResultSet result;
-        query = "select c.DEPT_NAME as Department,\n" +
-                "       c.COURSE_ID as CNO,\n" +
-                "       c.TITLE as Title,\n" +
-                "       t.SEC_ID as Sec,\n" +
-                "       t.SEMESTER as Sem,\n" +
-                "       t.YEAR as Year,\n" +
-                "       (select count(*) from takes where TAKES.SEC_ID = t.SEC_ID and TAKES.COURSE_ID = t.COURSE_ID) as Enrollment\n" +
+        query = "select c.DEPT_NAME as Department," +
+                "       c.COURSE_ID as CNO," +
+                "       c.TITLE as Title," +
+                "       t.SEC_ID as Sec," +
+                "       t.SEMESTER as Sem," +
+                "       t.YEAR as Year," +
+                "       (select count(*) from takes where TAKES.SEC_ID = t.SEC_ID and TAKES.COURSE_ID = t.COURSE_ID) as Enrollment" +
                 "       from INSTRUCTOR i natural join TEACHES t left join COURSE c on c.COURSE_ID = t.COURSE_ID where id = " + enteredId +
                 " order by c.DEPT_NAME, c.COURSE_ID, t.YEAR, t.SEMESTER desc";
         try {
